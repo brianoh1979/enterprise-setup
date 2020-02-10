@@ -108,6 +108,7 @@ resource "aws_security_group" "circleci_builders_sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
 }
 
@@ -128,6 +129,7 @@ resource "aws_security_group" "circleci_services_sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
   # If using github.com (not GitHub Enterprise) whitelist GitHub cidr block
   # https://help.github.com/articles/what-ip-addresses-does-github-use-that-i-should-whitelist/
@@ -171,6 +173,7 @@ resource "aws_security_group" "circleci_users_sg" {
 
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
     protocol    = "tcp"
     from_port   = 22
     to_port     = 22
@@ -179,6 +182,7 @@ resource "aws_security_group" "circleci_users_sg" {
   # For Web traffic to services
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
     protocol    = "tcp"
     from_port   = 80
     to_port     = 80
@@ -186,6 +190,7 @@ resource "aws_security_group" "circleci_users_sg" {
 
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
     protocol    = "tcp"
     from_port   = 443
     to_port     = 443
@@ -193,6 +198,7 @@ resource "aws_security_group" "circleci_users_sg" {
 
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
     protocol    = "tcp"
     from_port   = 8800
     to_port     = 8800
@@ -234,6 +240,7 @@ resource "aws_security_group" "circleci_users_sg" {
   # TODO: Update once services box has ngrok
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
     protocol    = "tcp"
     from_port   = 64535
     to_port     = 65535
@@ -248,6 +255,7 @@ resource "aws_security_group" "circleci_vm_sg" {
 
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
     protocol    = "tcp"
     from_port   = 22
     to_port     = 22
@@ -256,6 +264,7 @@ resource "aws_security_group" "circleci_vm_sg" {
   # For Web traffic to services
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
     protocol    = "tcp"
     from_port   = 2376
     to_port     = 2376
@@ -264,6 +273,7 @@ resource "aws_security_group" "circleci_vm_sg" {
   # For SSHing into 2.0 build
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
     protocol    = "tcp"
     from_port   = 54782
     to_port     = 54782
@@ -274,6 +284,7 @@ resource "aws_security_group" "circleci_vm_sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
 }
 
